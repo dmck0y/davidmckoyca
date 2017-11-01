@@ -1,5 +1,6 @@
 import { h, Component } from 'preact';
 import { Router } from 'preact-router';
+import 'tachyons';
 
 import Header from './header';
 import Home from '../routes/home';
@@ -18,13 +19,14 @@ export default class App extends Component {
 
 	render() {
 		return (
-			<div id="app">
-				<Header />
-				<Router onChange={this.handleRoute}>
-					<Home path="/" />
-					<Profile path="/profile/" user="me" />
-					<Profile path="/profile/:user" />
-				</Router>
+			<div class="h-100">
+				<div class="bg-black-white vh-100">
+					<Router onChange={this.handleRoute}>
+						<Home path="/" />
+						<Profile path="/profile/" user="me" />
+						<Profile path="/profile/:user" />
+					</Router>
+				</div>
 			</div>
 		);
 	}
