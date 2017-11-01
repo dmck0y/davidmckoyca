@@ -1,4 +1,4 @@
-# {{ name }}
+# davidmckoy.ca
 
 ## CLI Commands
 
