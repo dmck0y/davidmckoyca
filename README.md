@@ -1,7 +1,6 @@
 # davidmckoy.ca
 
 ## CLI Commands
-
 ``` bash
 # install dependencies
 npm install
