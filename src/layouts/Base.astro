@@ -1,0 +1,75 @@
+---
+import HeaderLink from '../components/HeaderLink.astro';
+---
+
+<style>
+    [href="/"] {
+        display: none;
+    }
+    .main-layout {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 73px auto;
+    }
+    .logo {
+        border-radius: 50%;
+        display: block;
+        width: 40px;
+        height: 40px;
+        background-color: black;
+        margin: 1rem;
+    }
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: right;
+        padding-right: 8px;
+    }
+    .header-layout {
+        display: flex;
+    }
+    .main-content {
+        grid-column: span 2;
+    }
+
+
+    @media screen and (min-width: 650px) {
+        .main-layout {
+            display: grid;
+            grid-template-columns: 30vw auto;
+            grid-template-rows: 100px auto;
+            margin-top: 8rem;
+        }
+        .main-content {
+            grid-column-start: 2;
+            grid-row-start: 2;
+        }
+        .logo {
+            grid-column: 2;
+            margin-left: 0;
+        }
+
+        nav {
+            grid-column: 1;
+            margin-top: 1rem;
+            align-items: unset;
+            margin-right: 3rem;
+        }
+
+        nav > * {
+            /* width: 100%; */
+        }
+    }
+</style>
+<main class="main-layout">
+    <a class="logo" href="/">
+        <span />
+    </a>
+    <nav>
+        <HeaderLink href="/">Home</HeaderLink>
+        <HeaderLink href="/about">About</HeaderLink>
+    </nav>
+    <div class="main-content">
+        <slot/>
+    </div>
+</main>

@@ -1,7 +1,7 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Base from '../layouts/Base.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
 
 // Use Astro.glob() to fetch all posts, and then sort them by date.
@@ -18,23 +18,44 @@ const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
 			ul {
 				list-style-type: none;
 				padding: unset;
+				margin: 0;
 			}
 			ul li {
-				display: flex;
+				margin-bottom: 1.5rem;
+				padding: 1rem;
+			}
+			ul li:hover, 
+			ul li:focus {
+				background: black;
 			}
 			ul li time {
 				flex: 0 0 130px;
-				font-style: italic;
 				color: #595959;
+				font-size: 12px;
 			}
-			ul li a:visited {
-				color: #8e32dc;
+			ul li a {
+				font-size: 18px;
 			}
+			time {
+				display: block;
+				font-family: 'Inconsolata', monospace;
+				text-transform: uppercase;
+				font-style: normal;
+			}
+			@media only screen and (min-width: 500px) {
+				ul li {
+					padding-left: 0;
+				}
+				ul li:hover, 
+				ul li:focus {
+					background: unset;
+				}
+			}
+
 		</style>
 	</head>
 	<body>
-		<Header />
-		<main>
+		<Base>
 			<section>
 				<ul>
 					{
@@ -53,7 +74,7 @@ const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
 					}
 				</ul>
 			</section>
-		</main>
 		<Footer />
+	</Base>
 	</body>
 </html>
